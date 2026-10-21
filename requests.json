@@ -1,1 +1,175 @@
 
+{
+    "site": {
+        "name": "REMNANT VOW",
+        "default_status": 200,
+        "status_page": "status.html",
+    },
+    "statuses": {
+        "200": {
+            "key": "OK",
+            "title": "OK",
+            "message": "The archive is available.",
+            "page": "index.html",
+            "type": "success"
+        },
+        "201": {
+            "key": "CREATED",
+            "title": "SOMETHING HAS BEEN MADE",
+            "message": "The request was completed successfully.",
+            "page": "status.html",
+            "type": "success"
+        },
+        "301": {
+            "key": "MOVED_PERMANENTLY",
+            "title": "MOVED_PERMANENTLY",
+            "message": "The requested page has a new permanent location.",
+            "page": "status.html",
+            "type": "redirect",
+            "redirect_to": "index.html"
+        },
+        "302": {
+            "key": "FOUND",
+            "title": "FOUND",
+            "message": "You are being temporarily redirected.",
+            "page": "status.html",
+            "type": "redirect",
+            "redirect_to": "index.html"
+        },
+        "400": {
+            "key": "BAD_REQUEST",
+            "title": "BAD_REQUEST",
+            "message": "The request could not be understood.",
+            "page": "status.html",
+            "type": "client_error"
+        },
+        "401": {
+            "key": "UNAUTHORIZED",
+            "title": "UNAUTHORIZED",
+            "message": "Valid authentication is required to enter.",
+            "page": "status.html",
+            "type": "client_error"
+        },
+        "403": {
+            "key": "FORBIDDEN",
+            "title": "FORBIDDEN",
+            "message": "Access to this part of the archive is forbidden.",
+            "page": "status.html",
+            "type": "client_error"
+        },
+        "404": {
+            "key": "NOT_FOUND",
+            "title": "NOT_FOUND",
+            "message": "The page you are looking for could not be found.",
+            "page": "404.html",
+            "type": "client_error"
+        },
+        "405": {
+            "key": "METHOD_NOT_ALLOWED",
+            "title": "METHOD_NOT_ALLOWED",
+            "message": "This endpoint does not accept that request method.",
+            "page": "status.html",
+            "type": "client_error"
+        },
+        "408": {
+            "key": "REQUEST_TIMEOUT",
+            "title": "REQUEST_TIMEOUT",
+            "message": "The request took too long. Try again.",
+            "page": "status.html",
+            "type": "client_error",
+            "retry": true
+        },
+        "410": {
+            "key": "GONE",
+            "title": "GONE",
+            "message": "The requested resource is no longer available.",
+            "page": "status.html",
+            "type": "client_error"
+        },
+        "418": {
+            "key": "TEAPOT",
+            "title": "TEAPOT",
+            "message": "An unusual response to an unusual request.",
+            "page": "status.html",
+            "type": "easter_egg"
+        },
+        "429": {
+            "key": "TOO_MANY_REQUESTS",
+            "title": "TOO_MANY_REQUESTS",
+            "message": "Too many requests. Wait before trying again.",
+            "page": "status.html",
+            "type": "client_error",
+            "retry": true,
+            "retry_after_seconds": 60
+        },
+        "500": {
+            "key": "INTERNAL_SERVER_ERROR",
+            "title": "INTERNAL_SERVER_ERROR",
+            "message": "An unexpected server error occurred.",
+            "page": "500.html",
+            "type": "server_error",
+            "retry": true
+        },
+        "502": {
+            "key": "BAD_GATEWAY",
+            "title": "BAD_GATEWAY",
+            "message": "An upstream server returned an invalid response.",
+            "page": "status.html",
+            "type": "server_error",
+            "retry": true
+        },
+        "503": {
+            "key": "SERVICE_UNAVAILABLE",
+            "title": "SERVICE_UNAVAILABLE",
+            "message": "The store is temporarily unavailable. Return when the lights come back.",
+            "page": "503.html",
+            "type": "server_error",
+            "retry": true
+        },
+        "504": {
+            "key": "GATEWAY_TIMEOUT",
+            "title": "GATEWAY_TIMEOUT",
+            "message": "A server failed to respond in time.",
+            "page": "status.html",
+            "type": "server_error",
+            "retry": true
+        }
+    },
+    "custom_states": {
+        "STORE_NOT_LAUNCHED": {
+            "http_status": 200,
+            "title": "NOT YET AVAILABLE",
+            "message": "The first Remnant Vow release has not arrived.",
+            "page": "index.html",
+            "type": "store_state"
+        },
+        "STORE_CLOSED": {
+            "http_status": 200,
+            "title": "THE SHOP IS CLOSED",
+            "message": "The current release is unavailable. The archive remains.",
+            "page": "index.html",
+            "type": "store_state"
+        },
+        "MAINTENANCE": {
+            "http_status": 503,
+            "title": "UNDER RECONSTRUCTION",
+            "message": "The store is being rebuilt. Please return later.",
+            "page": "503.html",
+            "type": "store_state"
+        },
+        "CHECKOUT_UNAVAILABLE": {
+            "http_status": 200,
+            "title": "CHECKOUT IS UNAVAILABLE",
+            "message": "Browsing is open, but checkout is temporarily disabled.",
+            "page": "index.html",
+            "type": "store_state"
+        },
+        "COLLECTION_SOLD_OUT": {
+            "http_status": 200,
+            "title": "NOTHING LEFT IN THIS RELEASE",
+            "message": "This collection has sold out.",
+            "page": "index.html",
+            "type": "store_state"
+        }
+    }
+}
